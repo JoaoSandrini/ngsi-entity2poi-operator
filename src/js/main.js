@@ -68,7 +68,6 @@ var entity2poi, processData, processEntity;
                 } else {
                     geojson = coord_parts;
                 }
-            
                 if (geojson.type === "Point" && Array.isArray(geojson.coordinates)) {
                     coordinates = [
                         parseFloat(geojson.coordinates[1]),
