@@ -112,7 +112,6 @@ var entity2poi, processData, processEntity;
                 longitude: coordinates[1]
             };
         }
-        
 
         return poi;
     };
