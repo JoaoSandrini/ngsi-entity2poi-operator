@@ -63,26 +63,20 @@ var entity2poi, processData, processEntity;
         } else if (entity[attributes[0]] != null) {
             coord_parts = entity[attributes[0]];
             if (typeof coord_parts === "object") {
-                geojson = coord_parts;
-
-                if (geojson.type === "Point") {
-                    // GeoJSON format: longitude, latitude[, elevation]
-                    coordinates = [
-                        parseFloat(coord_parts.coordinates[1]),
-                        parseFloat(coord_parts.coordinates[0])
-                    ];
+                if (coord_parts.type === "GeoProperty" && coord_parts.value && typeof coord_parts.value === "object") {
+                    geojson = coord_parts.value;
+                } else {
+                    geojson = coord_parts;
                 }
-            } else if (typeof coord_parts === "string") {
-                coord_parts = entity[attributes[0]].split(new RegExp(',\\s*'));
-                if (coord_parts != null && coord_parts.length === 2) {
+            
+                if (geojson.type === "Point" && Array.isArray(geojson.coordinates)) {
                     coordinates = [
-                        parseFloat(coord_parts[0]),
-                        parseFloat(coord_parts[1])
+                        parseFloat(geojson.coordinates[1]),
+                        parseFloat(geojson.coordinates[0])
                     ];
                 }
             }
         }
-
         if (coordinates || geojson) {
             return entity2poi(entity, coordinates, geojson);
         }
