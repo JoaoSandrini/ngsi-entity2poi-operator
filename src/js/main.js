@@ -101,14 +101,18 @@ var entity2poi, processData, processEntity;
             infoWindow: buildInfoWindow.call(this, entity),
         };
 
-        if (geojson) {
-            poi.location = geojson;
-        } else {
+        if (geojson && geojson.type === "Point" && Array.isArray(geojson.coordinates)) {
             poi.location = {
-                type: "Point",
-                coordinates: [coordinates[1], coordinates[0]]
+                latitude: geojson.coordinates[1],
+                longitude: geojson.coordinates[0]
+            };
+        } else if (coordinates) {
+            poi.location = {
+                latitude: coordinates[0],
+                longitude: coordinates[1]
             };
         }
+        
 
         return poi;
     };
