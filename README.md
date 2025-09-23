@@ -1,5 +1,7 @@
 # NGSI Entity 2 PoI operator
 
+This study was financed, in part, by the São Paulo Research Foundation (FAPESP), Brasil. Process Number #2024/23727-8.
+
 [![](https://nexus.lab.fiware.org/repository/raw/public/badges/chapters/visualization.svg)](https://www.fiware.org/developers/catalogue/)
 ![](https://img.shields.io/github/license/wirecloud-fiware/ngsi-entity2poi-operator.svg)<br/>
 [![Tests](https://github.com/wirecloud-fiware/ngsi-entity2poi-operator/workflows/Tests/badge.svg)](https://github.com/wirecloud-fiware/ngsi-entity2poi-operator/actions?query=workflow%3A%22Tests%22)
